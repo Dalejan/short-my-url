@@ -15,6 +15,11 @@
     flex-direction: column;
     background-color: $dark-violet;
     border-radius: 10px;
+    background-image: url("../../assets/bg-shorten-mobile.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
+
     .input__container {
       margin-bottom: 20px;
 
@@ -57,6 +62,8 @@
     form {
       flex-direction: row;
       padding: 35px 45px;
+      background-image: url("../../assets/bg-boost-desktop.svg");
+      background-repeat: no-repeat;
       .input__container {
         flex-grow: 1;
         margin-right: 20px;

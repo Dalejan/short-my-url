@@ -106,6 +106,10 @@
     background-color: $dark-violet;
     text-align: center;
     padding: 40px 0px;
+    background-image: url("../../assets/bg-boost-mobile.svg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
     h1 {
       margin: 0;
       font-size: 35px;
@@ -176,6 +180,11 @@
           top: 50%;
         }
       }
+    }
+
+    #section3 {
+      background-image: url("../../assets/bg-boost-desktop.svg");
+      background-size: cover;
     }
   }
 }
