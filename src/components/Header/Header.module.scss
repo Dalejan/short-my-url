@@ -2,13 +2,13 @@
 @import "../../styles/sass/mixins";
 
 .padding__container {
-  @include paddingContainer;
   background: #fffffff2;
   position: sticky;
   z-index: 10;
   top: 0;
 }
 .header__container {
+  @include paddingContainer;
   display: flex;
   align-items: center;
   height: 50px;

@@ -6,9 +6,6 @@
   font-weight: 600;
   transition: color 300ms ease-in-out;
 }
-.navMenuItem__container:hover {
-  color: $dark-violet;
-}
 
 .signUp {
   @include gradientButton;
@@ -33,5 +30,8 @@
     margin-left: 20px;
     display: flex;
     align-items: center;
+  }
+  .navMenuItem__container:hover {
+    color: $dark-violet;
   }
 }

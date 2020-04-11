@@ -33,14 +33,23 @@ const UrlShorter = (props) => {
       ? JSON.parse(localStorage.getItem("urls"))
       : [];
 
+    const exists = savedUrls
+      .map((el) => el.original)
+      .includes(urlToSave.original);
     // Check if urls are in storage and if the urlToSave is in storage
     localStorage.setItem(
       "urls",
-      savedUrls.includes(urlToSave)
+      exists
         ? JSON.stringify(savedUrls)
         : JSON.stringify([...savedUrls, urlToSave])
     );
-    createNotification("Shorted!", "Url have been shorted", "success");
+    exists
+      ? createNotification(
+          "You're ok?",
+          "You already have shorten this url, check bellow",
+          "info"
+        )
+      : createNotification("!Shorted", "Url have been shorted", "success");
 
     setLoading(false);
   };
