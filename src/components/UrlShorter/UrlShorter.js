@@ -89,6 +89,7 @@ const UrlShorter = (props) => {
           <form onSubmit={handleSubmit}>
             <div className={styles.input__container}>
               <input
+                aria-label="url input"
                 type="text"
                 name="url"
                 onChange={handleChange}

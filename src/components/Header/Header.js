@@ -5,11 +5,11 @@ import styles from "./Header.module.scss";
 
 const Header = (props) => {
   const links = [
-    { type: "normal", text: "Features", url: "/features" },
-    { type: "normal", text: "Pricing", url: "/pricing" },
-    { type: "normal", text: "Resources", url: "/resources" },
-    { type: "option", text: "Login", url: "/login" },
-    { type: "option", text: "Sign Up", url: "/signup" },
+    { type: "normal", text: "Features", url: "#/features" },
+    { type: "normal", text: "Pricing", url: "#/pricing" },
+    { type: "normal", text: "Resources", url: "#/resources" },
+    { type: "option", text: "Login", url: "#/login" },
+    { type: "option", text: "Sign Up", url: "#/signup" },
   ];
   const [menuOpen, setMenuOpen] = useState(false);
 
