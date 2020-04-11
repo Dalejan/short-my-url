@@ -1,0 +1,77 @@
+@import "../../styles/sass/variables";
+@import "../../styles/sass/mixins";
+
+.padding__container {
+  @include paddingContainer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer__container {
+  color: white;
+  background-color: $very-dark-violet-color;
+  padding: 50px 0px;
+  h1 {
+    margin: 0;
+  }
+  .links__container {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    .links__container__row {
+      margin-top: 20px;
+      h3 {
+        margin: 0;
+      }
+      p {
+        color: $grayish-violet-color;
+        font-weight: 600;
+      }
+    }
+  }
+  .socialIcons {
+    margin-top: 20px;
+    a {
+      margin: 10px;
+      img {
+      }
+    }
+  }
+}
+
+@media (min-width: $small-bp) {
+  .padding__container {
+    flex-direction: row;
+    align-self: flex-start;
+    justify-content: space-between;
+  }
+  .footer__container {
+    h2 {
+      margin: 0;
+    }
+    .links__container {
+      justify-content: space-between;
+      margin-top: 0;
+      .links__container__row {
+        margin-top: 0;
+        h3 {
+          margin: 0;
+        }
+        p {
+        }
+      }
+    }
+    .socialIcons {
+      margin-top: 0;
+      a {
+        img {
+        }
+      }
+    }
+  }
+}

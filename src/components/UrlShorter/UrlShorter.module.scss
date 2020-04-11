@@ -1,0 +1,70 @@
+@import "../../styles/sass/variables";
+@import "../../styles/sass/mixins";
+
+.padding__container {
+  @include paddingContainer;
+}
+
+.urlShorter__container {
+  width: 80%;
+  margin: auto;
+  margin-top: -40px;
+  form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: $dark-violet;
+    border-radius: 10px;
+    .input__container {
+      margin-bottom: 20px;
+
+      input {
+        width: calc(100% - 30px);
+        border: none;
+        padding: 14px;
+        border-radius: 3px;
+        font-family: "Poppins-Regular";
+        font-weight: 600;
+      }
+      .inputError {
+        border: 3px solid $error-color;
+      }
+      .inputError::placeholder {
+        color: $error-color;
+      }
+      p {
+        font-family: "Poppins-Regular";
+        color: $error-color;
+        margin: 5px 0px 0px;
+        font-size: 13px;
+        font-style: italic;
+      }
+    }
+    button {
+      border-radius: 5px;
+    }
+    button:disabled {
+      opacity: 0.4;
+    }
+  }
+}
+
+@media (min-width: $medium-bp) {
+  .urlShorter__container {
+    width: 100%;
+    margin: unset;
+    margin-top: -70px;
+    form {
+      flex-direction: row;
+      padding: 35px 45px;
+      .input__container {
+        flex-grow: 1;
+        margin-right: 20px;
+        margin-bottom: unset;
+      }
+      button {
+        max-width: 200px;
+      }
+    }
+  }
+}

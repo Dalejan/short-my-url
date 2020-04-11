@@ -14,11 +14,11 @@ import Header from "../../components/Header/Header";
 const Layout = (props) => {
   return (
     <div className="layout__container">
-      <Header></Header>
       <BrowserRouter>
+        <Header></Header>
         <AppRouter routes={appRoutes} />
+        <Footer></Footer>
       </BrowserRouter>
-      <Footer></Footer>
       <ReactNotification />
     </div>
   );

@@ -1,0 +1,17 @@
+@import "./variables";
+
+@mixin gradientButton {
+  background-color: $button-color;
+  background: -webkit-linear-gradient(to left, $button-color, $button-color2);
+  background: linear-gradient(to left, $button-color, $button-color2);
+}
+
+@mixin gradientButtonLight {
+  box-shadow: inset 0 0 100px 100px lighten($color: $button-color, $amount: 20);
+}
+
+@mixin paddingContainer {
+  @media (min-width: 1040px) {
+    padding: 0px 130px;
+  }
+}

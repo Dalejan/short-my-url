@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { shortUrl } from "../../services/short-url.service";
 import { Formik } from "formik";
 import { createNotification } from "../Notification/Notification";
+import UrlItem from "./UrlItem/UrlItem";
+import styles from "./UrlShorter.module.scss";
 
 const UrlShorter = (props) => {
   const [loading, setLoading] = useState(false);
+  const [shortedUrls, setShortedUrls] = useState([]);
+
+  useEffect(() => {
+    setShortedUrls(
+      JSON.parse(localStorage.getItem("urls"))
+        ? JSON.parse(localStorage.getItem("urls"))
+        : []
+    );
+    return () => {};
+  }, [loading]);
 
   const handleSubmit = async (_url) => {
     const res = await shortUrl(_url);
@@ -13,8 +25,10 @@ const UrlShorter = (props) => {
       setLoading(false);
       return;
     }
-
-    const urlToSave = `https://rel.ink/${res.hashid}`;
+    const urlToSave = {
+      original: res.url,
+      short: `https://rel.ink/${res.hashid}`,
+    };
     const savedUrls = localStorage.getItem("urls")
       ? JSON.parse(localStorage.getItem("urls"))
       : [];
@@ -22,25 +36,25 @@ const UrlShorter = (props) => {
     // Check if urls are in storage and if the urlToSave is in storage
     localStorage.setItem(
       "urls",
-      localStorage.getItem("urls")
-        ? savedUrls.includes(urlToSave)
-          ? JSON.stringify([...savedUrls])
-          : JSON.stringify([...savedUrls, urlToSave])
-        : JSON.stringify([urlToSave])
+      savedUrls.includes(urlToSave)
+        ? JSON.stringify(savedUrls)
+        : JSON.stringify([...savedUrls, urlToSave])
     );
+    createNotification("Shorted!", "Url have been shorted", "success");
+
     setLoading(false);
   };
 
   return (
-    <>
-      UrlShorter Component
-      {loading && <p>Loading...</p>}
+    // <div className={styles.padding__container}>
+    <div className={styles.urlShorter__container}>
+      {/* {loading && <p>Loading...</p>} */}
       <Formik
         initialValues={{ url: "" }}
         validate={(values) => {
           const errors = {};
           if (!values.url) {
-            errors.url = "Required";
+            errors.url = "An Url is required";
           } else if (
             !/^http[s]?:\/\/(?:[a-z]|[0-9]|[$-_@.&+]|[!*,]|(?:%[0-9a-f][0-9a-f]))+/i.test(
               values.url
@@ -66,23 +80,31 @@ const UrlShorter = (props) => {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="url"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.url}
-            />
-            {touched.url && errors.url && (
-              <p>{errors.url && touched.url && errors.url}</p>
-            )}
-            <button type="submit" disabled={isSubmitting}>
-              Submit
+            <div className={styles.input__container}>
+              <input
+                type="text"
+                name="url"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.url}
+                placeholder="Shorten a link here..."
+                className={errors.url ? styles.inputError : ""}
+              />
+              {touched.url && errors.url && (
+                <p>{errors.url && touched.url && errors.url}</p>
+              )}
+            </div>
+            <button type="submit" disabled={isSubmitting || errors.url}>
+              {loading ? "Loading..." : "Shorten It!"}
             </button>
           </form>
         )}
       </Formik>
-    </>
+      {shortedUrls.map((url, i) => {
+        return <UrlItem url={url} key={i}></UrlItem>;
+      })}
+    </div>
+    // </div>
   );
 };
 

@@ -1,0 +1,181 @@
+@import "../../styles/sass/variables";
+@import "../../styles/sass/mixins";
+
+.padding__container {
+  @include paddingContainer;
+}
+.home__container {
+  #section1 {
+    display: flex;
+    flex-direction: column;
+    #section1__content {
+      text-align: center;
+      margin: 20px 10px;
+      h1 {
+        color: $dark-violet;
+        font-size: 36px;
+        line-height: 1;
+      }
+      p {
+        color: $grayish-violet-color;
+        font-family: "Poppins-Regular";
+        max-width: 300px;
+        margin: auto;
+        margin-bottom: 40px;
+      }
+      button {
+        margin-top: 20px;
+      }
+    }
+    #illustration_afro {
+      transition: all 300ms ease-in-out;
+      width: auto;
+      height: auto;
+      max-width: 375px;
+      margin: auto;
+    }
+  }
+  #section2 {
+    background: rgb(240, 240, 240);
+    padding: 10px;
+    margin-top: 80px;
+    position: relative;
+
+    .statistics__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        color: $very-dark-violet-color;
+        font-size: 25px;
+      }
+      p {
+        color: $grayish-violet-color;
+        font-family: "Poppins-Regular";
+        max-width: 300px;
+        text-align: center;
+      }
+
+      .statisticsBoxes__container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 40px 0px;
+        .statisticsBox__container {
+          border-radius: 5px;
+          position: relative;
+          z-index: 1;
+          margin: 10px;
+          margin-top: 50px;
+          padding: 20px;
+          background-color: white;
+
+          .statisticsIcon__container {
+            position: absolute;
+            top: -25px;
+            left: 43%;
+            img {
+              border-radius: 50%;
+              padding: 10px;
+              height: 30px;
+              width: auto;
+              background-color: $very-dark-violet-color;
+            }
+          }
+          h2 {
+            font-family: "Poppins-Bold";
+          }
+          p {
+            text-align: left;
+          }
+        }
+      }
+      .statisticsBoxes__container::after {
+        content: "";
+        background-color: #2acfcf;
+        width: 100%;
+        position: absolute;
+        width: 10px;
+        height: calc(100% - 40px);
+        left: 50%;
+        top: 30px;
+      }
+    }
+  }
+  #section3 {
+    background-color: $dark-violet;
+    text-align: center;
+    padding: 40px 0px;
+    h1 {
+      margin: 0;
+      font-size: 35px;
+      color: white;
+    }
+    button {
+      margin: 20px;
+    }
+  }
+}
+
+@media (min-width: $small-bp) {
+  .home__container {
+    #section1 {
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+      #section1__content {
+        text-align: left;
+        max-width: 35%;
+        min-width: 270px;
+        h1 {
+          font-size: 44px;
+          line-height: initial;
+        }
+        p {
+          margin: unset;
+        }
+      }
+      #illustration_afro {
+        width: 400px;
+        max-width: unset;
+        margin: unset;
+      }
+    }
+
+    #section2 {
+      .statistics__container {
+        h1 {
+          font-size: 35px;
+        }
+        p {
+          max-width: 300px;
+        }
+
+        .statisticsBoxes__container {
+          flex-direction: row;
+          align-items: flex-start;
+          .statisticsBox__container {
+            margin-top: unset;
+            max-width: 300px;
+            .statisticsIcon__container {
+              left: 30px;
+            }
+          }
+          .statisticsBox__container:nth-child(2) {
+            margin-top: 40px;
+          }
+          .statisticsBox__container:nth-child(3) {
+            margin-top: 80px;
+          }
+        }
+        .statisticsBoxes__container::after {
+          width: calc(100% - 20px);
+          position: absolute;
+          height: 10px;
+          left: 10px;
+          top: 50%;
+        }
+      }
+    }
+  }
+}

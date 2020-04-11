@@ -1,3 +1,17 @@
+@import "../../styles/sass/_variables";
+
 .layout__container {
   display: flex;
+  flex-direction: column;
 }
+
+// @media (min-width: $small-bp) {
+//   .layout__container {
+//     height: calc(100vh - 40px);
+//   }
+// }
+
+// @media (min-width: $medium-bp) {
+//   .layout__container {
+//   }
+// }

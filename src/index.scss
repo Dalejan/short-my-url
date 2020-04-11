@@ -1,9 +1,11 @@
 @import "./styles/sass/_fonts";
+@import "./styles/sass/_variables";
+@import "./styles/sass/_mixins";
 @import "../node_modules/react-notifications-component/dist/theme";
 
 body {
   margin: 0;
-  font-family: "Poppins-Regular", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+  font-family: "Poppins-REgular", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,4 +14,33 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+h1 {
+  font-family: "Poppins-Bold";
+}
+
+button {
+  @include gradientButton;
+  border: 0px;
+  border-radius: 300px;
+  height: 50px;
+  padding: 0px 36px;
+
+  color: $contrast-color;
+  font-family: "Poppins-Bold";
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 300ms ease-in-out;
+}
+button:hover {
+  @include gradientButtonLight;
+  cursor: pointer;
+
+  //background: lighten($color: $button-color, $amount: 1);
 }
