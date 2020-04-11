@@ -12,6 +12,6 @@
 
 @mixin paddingContainer {
   @media (min-width: 1040px) {
-    padding: 0px 130px;
+    padding: 0 calc(100vw - 1150px);
   }
 }

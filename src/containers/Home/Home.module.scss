@@ -109,7 +109,7 @@
     background-image: url("../../assets/bg-boost-mobile.svg");
     background-repeat: no-repeat;
     background-position-x: right;
-    background-size: contain;
+    background-size: cover;
     h1 {
       margin: 0;
       font-size: 35px;
@@ -184,7 +184,6 @@
 
     #section3 {
       background-image: url("../../assets/bg-boost-desktop.svg");
-      background-size: cover;
     }
   }
 }

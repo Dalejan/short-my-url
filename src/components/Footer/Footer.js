@@ -4,6 +4,7 @@ import facebookIcon from "../../assets/icon-facebook.svg";
 import twitterIcon from "../../assets/icon-twitter.svg";
 import pinterestIcon from "../../assets/icon-pinterest.svg";
 import instagramIcon from "../../assets/icon-instagram.svg";
+
 const Footer = (props) => {
   return (
     <footer className={styles.footer__container}>

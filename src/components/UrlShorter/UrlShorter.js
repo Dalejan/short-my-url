@@ -46,9 +46,7 @@ const UrlShorter = (props) => {
   };
 
   return (
-    // <div className={styles.padding__container}>
     <div className={styles.urlShorter__container}>
-      {/* {loading && <p>Loading...</p>} */}
       <Formik
         initialValues={{ url: "" }}
         validate={(values) => {
@@ -104,7 +102,6 @@ const UrlShorter = (props) => {
         return <UrlItem url={url} key={i}></UrlItem>;
       })}
     </div>
-    // </div>
   );
 };
 

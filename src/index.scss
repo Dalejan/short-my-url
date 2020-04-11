@@ -41,6 +41,4 @@ button {
 button:hover {
   @include gradientButtonLight;
   cursor: pointer;
-
-  //background: lighten($color: $button-color, $amount: 1);
 }
